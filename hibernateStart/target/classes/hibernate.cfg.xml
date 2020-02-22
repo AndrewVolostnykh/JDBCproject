@@ -11,10 +11,16 @@
         <property name="hibernate.connection.password">1679438520</property>
         <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/hibernate_training</property>
         <property name="show_sql">true</property>
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">create-drop</property>
 
+        <!--
         <mapping resource="user.cfg.xml"/>
         <mapping resource="role.cfg.xml"/>
+        <mapping resource="user_activation.cfg.xml"/>
+        -->
+
+        <mapping class="model2.Message"/>
+
     </session-factory>
 </hibernate-configuration>
 

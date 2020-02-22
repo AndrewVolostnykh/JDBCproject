@@ -1,5 +1,8 @@
 package model;
 
+import javax.persistence.*;
+import java.util.Set;
+
 // Class have mapped in user.cfg.xml
 public class UserDao {
     private long id;
@@ -8,6 +11,8 @@ public class UserDao {
     private int age;
 
     private RoleDao role;
+
+    private UserActivationDao activation;
 
     public UserDao(){}
 
@@ -58,4 +63,13 @@ public class UserDao {
     public RoleDao getRole() {
         return role;
     }
+
+    public UserActivationDao getActivation() {
+        return activation;
+    }
+
+    public void setActivation(UserActivationDao activation) {
+        this.activation = activation;
+    }
+
 }

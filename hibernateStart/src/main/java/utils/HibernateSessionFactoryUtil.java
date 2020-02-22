@@ -35,4 +35,12 @@ public class HibernateSessionFactoryUtil {
     {
         return sessionFactory;
     }
+
+    public static void shutDown()
+    {
+        if(standardServiceRegistry != null)
+        {
+            StandardServiceRegistryBuilder.destroy(standardServiceRegistry);
+        }
+    }
 }

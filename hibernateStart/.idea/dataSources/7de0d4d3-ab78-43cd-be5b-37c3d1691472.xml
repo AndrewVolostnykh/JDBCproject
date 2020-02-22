@@ -8,7 +8,7 @@
       <ObjectId>33034</ObjectId>
       <StateNumber>1077</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1093</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1127</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </database>
@@ -111,7 +111,7 @@
       <Comment>standard public schema</Comment>
       <StateNumber>360</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1094</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1128</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -172,105 +172,160 @@
       <SchemaId>11</SchemaId>
     </extension>
     <sequence id="28" parent="20" name="hibernate_sequence">
-      <ObjectId>33045</ObjectId>
-      <StateNumber>1089</StateNumber>
+      <ObjectId>33090</ObjectId>
+      <StateNumber>1111</StateNumber>
       <Owner>postgres</Owner>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
     </sequence>
-    <table id="29" parent="20" name="role">
-      <ObjectId>33047</ObjectId>
+    <table id="29" parent="20" name="message">
+      <ObjectId>33115</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1092</StateNumber>
+      <StateNumber>1126</StateNumber>
     </table>
-    <table id="30" parent="20" name="user">
-      <ObjectId>33052</ObjectId>
+    <table id="30" parent="20" name="role">
+      <ObjectId>33092</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1092</StateNumber>
+      <StateNumber>1115</StateNumber>
     </table>
-    <column id="31" parent="29" name="id">
+    <table id="31" parent="20" name="user">
+      <ObjectId>33097</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1115</StateNumber>
+    </table>
+    <table id="32" parent="20" name="useractivationdao">
+      <ObjectId>33105</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1114</StateNumber>
+    </table>
+    <column id="33" parent="29" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>1119</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="34" parent="29" name="text">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>1120</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="35" parent="29" name="user_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>1126</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="36" parent="30" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1090</StateNumber>
+      <StateNumber>1112</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="32" parent="29" name="title">
+    <column id="37" parent="30" name="title">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1090</StateNumber>
+      <StateNumber>1112</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="33" parent="29" name="role_pkey">
-      <ObjectId>33050</ObjectId>
-      <StateNumber>1090</StateNumber>
+    <index id="38" parent="30" name="role_pkey">
+      <ObjectId>33095</ObjectId>
+      <StateNumber>1112</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="34" parent="29" name="role_pkey">
-      <ObjectId>33051</ObjectId>
-      <StateNumber>1090</StateNumber>
+    <key id="39" parent="30" name="role_pkey">
+      <ObjectId>33096</ObjectId>
+      <StateNumber>1112</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>role_pkey</UnderlyingIndexName>
     </key>
-    <column id="35" parent="30" name="id">
+    <column id="40" parent="31" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1091</StateNumber>
+      <StateNumber>1113</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="36" parent="30" name="name">
+    <column id="41" parent="31" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1091</StateNumber>
+      <StateNumber>1113</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="37" parent="30" name="surname">
+    <column id="42" parent="31" name="surname">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1091</StateNumber>
+      <StateNumber>1113</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="38" parent="30" name="age">
+    <column id="43" parent="31" name="age">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>1091</StateNumber>
+      <StateNumber>1113</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="39" parent="30" name="role_id">
+    <column id="44" parent="31" name="role_id">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1091</StateNumber>
+      <StateNumber>1113</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="40" parent="30" name="user_pkey">
-      <ObjectId>33058</ObjectId>
-      <StateNumber>1091</StateNumber>
+    <index id="45" parent="31" name="user_pkey">
+      <ObjectId>33103</ObjectId>
+      <StateNumber>1113</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="41" parent="30" name="user_pkey">
-      <ObjectId>33059</ObjectId>
-      <StateNumber>1091</StateNumber>
+    <key id="46" parent="31" name="user_pkey">
+      <ObjectId>33104</ObjectId>
+      <StateNumber>1113</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>user_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="42" parent="30" name="fko42rbqeypy821oc2gfmeg1t31">
-      <ObjectId>33060</ObjectId>
-      <StateNumber>1092</StateNumber>
+    <foreign-key id="47" parent="31" name="fko42rbqeypy821oc2gfmeg1t31">
+      <ObjectId>33110</ObjectId>
+      <StateNumber>1115</StateNumber>
       <ColNames>role_id</ColNames>
-      <RefTableId>33047</RefTableId>
+      <RefTableId>33092</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>role</RefTableName>
       <RefKeyName>role_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
+    <column id="48" parent="32" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1114</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="49" parent="32" name="activationcode">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1114</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="50" parent="32" name="useractivationdao_pkey">
+      <ObjectId>33108</ObjectId>
+      <StateNumber>1114</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="51" parent="32" name="useractivationdao_pkey">
+      <ObjectId>33109</ObjectId>
+      <StateNumber>1114</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>useractivationdao_pkey</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>
