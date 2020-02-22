@@ -6,25 +6,21 @@ import utils.HibernateSessionFactoryUtil;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception
+    {
         Message message = new Message("helllo, this is first message");
         Message message1 = new Message("hey, there is second message in one transaction :)");
         Transaction transaction = null;
-        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession())
-        {
-            transaction = session.beginTransaction();
-            session.save(message);
-            session.save(message1);
-            transaction.commit();
-        } catch (Exception e)
-        {
-            if(transaction != null)
-            {
-                transaction.rollback();
-            }
 
-            e.printStackTrace();
-        }
+        FirstCrud.saveMessage(message);
+        FirstCrud.saveMessage(message1);
+        message.setText("Another text in message");
+        FirstCrud.saveOrUpdate(message);
+//        FirstCrud.removeMessage(1);
+//        FirstCrud.removeMessage(2);
+//        System.out.println(FirstCrud.getMessageById(1).getText() + ": got by id");
+//        System.out.println(FirstCrud.getMessageById(30).getText() + ": got by id");
+        System.out.println(FirstCrud.getMessage(1).getText() + ": got by simple session.get()");
 
         try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession())
         {
