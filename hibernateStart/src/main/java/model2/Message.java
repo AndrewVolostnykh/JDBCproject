@@ -6,15 +6,17 @@ import javax.persistence.*;
 @Table(name = "message")
 public class Message {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
     @Column(name = "text")
     private String text;
 
-    @Column(name = "user_id")
-    private int user_id; // ///idk
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id") // that save user_id in table Messages
+    // if we not use this param, hibernate create new table to save relations (pk-fk)
+    private Student student;
 
     public Message (){}
 
@@ -38,11 +40,11 @@ public class Message {
         this.text = text;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public Student getStudent() {
+        return student;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 }

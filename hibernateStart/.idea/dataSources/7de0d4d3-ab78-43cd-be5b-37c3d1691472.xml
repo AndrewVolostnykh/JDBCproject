@@ -8,7 +8,7 @@
       <ObjectId>33034</ObjectId>
       <StateNumber>1077</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1127</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1295</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </database>
@@ -111,7 +111,7 @@
       <Comment>standard public schema</Comment>
       <StateNumber>360</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1128</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1296</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -172,157 +172,257 @@
       <SchemaId>11</SchemaId>
     </extension>
     <sequence id="28" parent="20" name="hibernate_sequence">
-      <ObjectId>33090</ObjectId>
-      <StateNumber>1111</StateNumber>
+      <ObjectId>41441</ObjectId>
+      <StateNumber>1285</StateNumber>
       <Owner>postgres</Owner>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
     </sequence>
     <table id="29" parent="20" name="message">
-      <ObjectId>33115</ObjectId>
+      <ObjectId>41443</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1126</StateNumber>
+      <StateNumber>1290</StateNumber>
     </table>
     <table id="30" parent="20" name="role">
-      <ObjectId>33092</ObjectId>
+      <ObjectId>33174</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1115</StateNumber>
+      <StateNumber>1154</StateNumber>
     </table>
-    <table id="31" parent="20" name="user">
-      <ObjectId>33097</ObjectId>
+    <table id="31" parent="20" name="student">
+      <ObjectId>41448</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1115</StateNumber>
+      <StateNumber>1291</StateNumber>
     </table>
-    <table id="32" parent="20" name="useractivationdao">
-      <ObjectId>33105</ObjectId>
+    <table id="32" parent="20" name="student_message">
+      <ObjectId>41456</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1114</StateNumber>
+      <StateNumber>1290</StateNumber>
     </table>
-    <column id="33" parent="29" name="id">
-      <Position>1</Position>
-      <DataType>integer|0s</DataType>
-      <StateNumber>1119</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="34" parent="29" name="text">
-      <Position>2</Position>
-      <DataType>text|0s</DataType>
-      <StateNumber>1120</StateNumber>
-      <TypeId>25</TypeId>
-    </column>
-    <column id="35" parent="29" name="user_id">
-      <Position>3</Position>
-      <DataType>integer|0s</DataType>
-      <StateNumber>1126</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="36" parent="30" name="id">
+    <table id="33" parent="20" name="user">
+      <ObjectId>33154</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1149</StateNumber>
+    </table>
+    <table id="34" parent="20" name="useractivationdao">
+      <ObjectId>33179</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1155</StateNumber>
+    </table>
+    <column id="35" parent="29" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1112</StateNumber>
+      <StateNumber>1286</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="37" parent="30" name="title">
+    <column id="36" parent="29" name="text">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1112</StateNumber>
+      <StateNumber>1286</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="38" parent="30" name="role_pkey">
-      <ObjectId>33095</ObjectId>
-      <StateNumber>1112</StateNumber>
+    <column id="37" parent="29" name="user_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>1286</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="38" parent="29" name="message_pkey">
+      <ObjectId>41446</ObjectId>
+      <StateNumber>1286</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="39" parent="30" name="role_pkey">
-      <ObjectId>33096</ObjectId>
-      <StateNumber>1112</StateNumber>
+    <key id="39" parent="29" name="message_pkey">
+      <ObjectId>41447</ObjectId>
+      <StateNumber>1286</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>message_pkey</UnderlyingIndexName>
+    </key>
+    <column id="40" parent="30" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1154</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="41" parent="30" name="title">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1154</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="42" parent="30" name="role_pkey">
+      <ObjectId>33177</ObjectId>
+      <StateNumber>1154</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="43" parent="30" name="role_pkey">
+      <ObjectId>33178</ObjectId>
+      <StateNumber>1154</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>role_pkey</UnderlyingIndexName>
     </key>
-    <column id="40" parent="31" name="id">
+    <column id="44" parent="31" name="id">
       <Position>1</Position>
-      <DataType>bigint|0s</DataType>
+      <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1113</StateNumber>
-      <TypeId>20</TypeId>
+      <StateNumber>1287</StateNumber>
+      <TypeId>23</TypeId>
     </column>
-    <column id="41" parent="31" name="name">
+    <column id="45" parent="31" name="email">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1113</StateNumber>
+      <StateNumber>1287</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="42" parent="31" name="surname">
+    <column id="46" parent="31" name="last_name">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1113</StateNumber>
+      <StateNumber>1287</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="43" parent="31" name="age">
+    <column id="47" parent="31" name="name">
       <Position>4</Position>
-      <DataType>integer|0s</DataType>
-      <StateNumber>1113</StateNumber>
-      <TypeId>23</TypeId>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1287</StateNumber>
+      <TypeId>1043</TypeId>
     </column>
-    <column id="44" parent="31" name="role_id">
-      <Position>5</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>1113</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <index id="45" parent="31" name="user_pkey">
-      <ObjectId>33103</ObjectId>
-      <StateNumber>1113</StateNumber>
+    <index id="48" parent="31" name="student_pkey">
+      <ObjectId>41454</ObjectId>
+      <StateNumber>1287</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="46" parent="31" name="user_pkey">
-      <ObjectId>33104</ObjectId>
-      <StateNumber>1113</StateNumber>
+    <key id="49" parent="31" name="student_pkey">
+      <ObjectId>41455</ObjectId>
+      <StateNumber>1287</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>student_pkey</UnderlyingIndexName>
+    </key>
+    <column id="50" parent="32" name="student_id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1288</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="51" parent="32" name="messages_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1288</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="52" parent="32" name="uk_k3ggwhe8omxvwlb56afc8efst">
+      <ObjectId>41459</ObjectId>
+      <StateNumber>1289</StateNumber>
+      <ColNames>messages_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="53" parent="32" name="uk_k3ggwhe8omxvwlb56afc8efst">
+      <ObjectId>41460</ObjectId>
+      <StateNumber>1289</StateNumber>
+      <ColNames>messages_id</ColNames>
+      <UnderlyingIndexName>uk_k3ggwhe8omxvwlb56afc8efst</UnderlyingIndexName>
+    </key>
+    <foreign-key id="54" parent="32" name="fk6mshtuhvy57k77ekisg1adqyb">
+      <ObjectId>41466</ObjectId>
+      <StateNumber>1291</StateNumber>
+      <ColNames>student_id</ColNames>
+      <RefTableId>41448</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>student</RefTableName>
+      <RefKeyName>student_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="55" parent="32" name="fkp8rckgkphihm76rjw550ct2u8">
+      <ObjectId>41461</ObjectId>
+      <StateNumber>1290</StateNumber>
+      <ColNames>messages_id</ColNames>
+      <RefTableId>41443</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>message</RefTableName>
+      <RefKeyName>message_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="56" parent="33" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1147</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="57" parent="33" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1147</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="58" parent="33" name="surname">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1147</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="59" parent="33" name="age">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>1147</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="60" parent="33" name="role_id">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1147</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="61" parent="33" name="user_pkey">
+      <ObjectId>33160</ObjectId>
+      <StateNumber>1147</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="62" parent="33" name="user_pkey">
+      <ObjectId>33161</ObjectId>
+      <StateNumber>1147</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>user_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="47" parent="31" name="fko42rbqeypy821oc2gfmeg1t31">
-      <ObjectId>33110</ObjectId>
-      <StateNumber>1115</StateNumber>
-      <ColNames>role_id</ColNames>
-      <RefTableId>33092</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>role</RefTableName>
-      <RefKeyName>role_pkey</RefKeyName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="48" parent="32" name="id">
+    <column id="63" parent="34" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1114</StateNumber>
+      <StateNumber>1155</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="49" parent="32" name="activationcode">
+    <column id="64" parent="34" name="activationcode">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1114</StateNumber>
+      <StateNumber>1155</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="50" parent="32" name="useractivationdao_pkey">
-      <ObjectId>33108</ObjectId>
-      <StateNumber>1114</StateNumber>
+    <index id="65" parent="34" name="useractivationdao_pkey">
+      <ObjectId>33182</ObjectId>
+      <StateNumber>1155</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="51" parent="32" name="useractivationdao_pkey">
-      <ObjectId>33109</ObjectId>
-      <StateNumber>1114</StateNumber>
+    <key id="66" parent="34" name="useractivationdao_pkey">
+      <ObjectId>33183</ObjectId>
+      <StateNumber>1155</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>useractivationdao_pkey</UnderlyingIndexName>

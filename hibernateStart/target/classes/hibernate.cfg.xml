@@ -20,6 +20,7 @@
         -->
 
         <mapping class="model2.Message"/>
+        <mapping class="model2.Student"/>
 
     </session-factory>
 </hibernate-configuration>

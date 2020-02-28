@@ -1,44 +1,23 @@
-import model2.Message;
+package model2;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utils.HibernateSessionFactoryUtil;
 
-@Deprecated
-public class FirstCrud {
+public class ModelDao {
 
-    /*
-    @Deprecated
-    public static void saveMessage(Message message)
-    {
-        Transaction transaction = null;
-        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
-            transaction = session.beginTransaction();
-            session.save(message);
-            transaction.commit();
-        } catch (Exception e)
-        {
-            if (transaction != null)
-            {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
-    } */
-
-    public static void saveOrUpdate(Message message)
+    public void addEntity(Object entity)
     {
         Transaction transaction = null;
         try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
 
-            Message tempMessage = session.get(Message.class, message.getId());
-            tempMessage.setText(message.getText());
-            session.saveOrUpdate(tempMessage);
+            session.save(entity);
 
             transaction.commit();
         } catch (Exception e)
         {
-            if (transaction != null)
+            if(transaction != null)
             {
                 transaction.rollback();
             }
@@ -46,23 +25,18 @@ public class FirstCrud {
         }
     }
 
-    public static void removeMessage(int id)
+    public void updateEntity(Object entity)
     {
         Transaction transaction = null;
         try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
 
-            Message message = session.get(Message.class, id);
-            if (message != null)
-            {
-                session.delete(message);
-                System.out.println("Message 1 deleted!");
-            }
+            session.update(entity);
 
             transaction.commit();
         } catch (Exception e)
         {
-            if (transaction != null)
+            if(transaction != null)
             {
                 transaction.rollback();
             }
@@ -70,46 +44,69 @@ public class FirstCrud {
         }
     }
 
-    public static Message getMessage(int id)
+
+    public void removeStudent(int id)
     {
         Transaction transaction = null;
         try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
 
-            Message message = session.get(Message.class, id);
+            Student s = session.get(Student.class, id);
+            if(s != null)
+            {
+                session.delete(s);
+                System.out.println("Student " + s.getEmail() + " deleted!");
+            }
 
             transaction.commit();
-            return message;
         } catch (Exception e)
         {
-            if (transaction != null)
+            if(transaction != null)
             {
                 transaction.rollback();
             }
             e.printStackTrace();
         }
-        return null;
     }
 
-    // method with defect
-    public static Message getMessageById(int id)
+    public Student getStudent (int id)
+    {
+
+        Transaction transaction = null;
+        Student student = null;
+        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+
+            student = session.get(Student.class, id);
+
+            transaction.commit();
+            return student;
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        return student;
+    }
+
+    public void persistEntity(Object entity)
     {
         Transaction transaction = null;
         try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
 
-            Message message = session.byId(Message.class).getReference(id);
+            session.persist(entity);
 
             transaction.commit();
-            return message;
         } catch (Exception e)
         {
-            if (transaction != null)
+            if(transaction != null)
             {
                 transaction.rollback();
             }
             e.printStackTrace();
         }
-        return null;
     }
+
 }
