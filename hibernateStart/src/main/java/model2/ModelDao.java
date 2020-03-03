@@ -6,7 +6,7 @@ import utils.HibernateSessionFactoryUtil;
 
 public class ModelDao {
 
-    public void addEntity(Object entity)
+    public void saveEntity(Object entity)
     {
         Transaction transaction = null;
         try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
@@ -69,6 +69,53 @@ public class ModelDao {
         }
     }
 
+    public void removeMessage(int id)
+    {
+        Transaction transaction = null;
+        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+
+            Message m = session.get(Message.class, id);
+            if(m != null)
+            {
+                session.delete(m);
+                System.out.println("Message " + m.getId() + " removed");
+            }
+
+            transaction.commit();
+        } catch (Exception e)
+        {
+            if(transaction != null)
+            {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+    }
+
+    public void removeItem(int id)
+    {
+        Transaction transaction = null;
+        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+
+            Item item = session.get(Item.class, id);
+            if(item != null)
+            {
+                session.delete(item);
+            }
+
+            transaction.commit();
+        } catch (Exception e)
+        {
+            if(transaction != null)
+            {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+    }
+
     public Student getStudent (int id)
     {
 
@@ -88,6 +135,47 @@ public class ModelDao {
             e.printStackTrace();
         }
         return student;
+    }
+
+    public Message getMessage(int id)
+    {
+
+        Transaction transaction = null;
+        Message message = null;
+        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+
+            message = session.get(Message.class, id);
+
+            transaction.commit();
+            return message;
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        return message;
+    }
+
+    public Item getItem(int id)
+    {
+        Transaction transaction = null;
+        Item item = null;
+        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+
+            item = session.get(Item.class, id);
+
+            transaction.commit();
+            return item;
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        return item;
     }
 
     public void persistEntity(Object entity)

@@ -21,6 +21,9 @@ public class Student {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "student")
     private List<Message> messages = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "student")
+    private List<Item> items = new ArrayList<>();
+
     public Student(){}
     public Student(String name, String lastname, String email)
     {
@@ -79,5 +82,25 @@ public class Student {
     {
         message.setStudent(null);
         this.messages.remove(message);
+    }
+
+    public void addItem(Item item)
+    {
+        items.add(item);
+        item.setStudent(this);
+    }
+
+    public void removeItem(Item item)
+    {
+        item.setStudent(null);
+        this.items.remove(item);
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 }

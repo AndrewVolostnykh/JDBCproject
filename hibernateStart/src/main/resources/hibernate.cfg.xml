@@ -21,6 +21,7 @@
 
         <mapping class="model2.Message"/>
         <mapping class="model2.Student"/>
+        <mapping class="model2.Item"/>
 
     </session-factory>
 </hibernate-configuration>
