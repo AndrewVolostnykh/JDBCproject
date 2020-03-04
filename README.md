@@ -1,5 +1,5 @@
-# JavaDatabases
-JDBC, Hibernate and some testing (JUnit, Mockito)
+# StackForming
+JDBC, Hibernate, Spring (some of), Tesing(Junit, Mockito), other
 
 jdbcPract
 ---------------------
