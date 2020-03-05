@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+
+    <bean id="testBean" class="application.TestBean">
+        <constructor-arg value="FirstName"/>
+    </bean>
+
+    <bean id="popBean" class="application.PopMusic"/>
+    <bean id="rockBean" class="application.RockMusic"/>
+
+    <!-- Example of dependency injection using constructor -->
+    <bean id="rockMusicPlayer" class="application.MusicPlayer">
+        <constructor-arg ref="rockBean"/>
+    </bean>
+
+    <bean id="popMusicPlayer" class="application.MusicPlayer">
+        <constructor-arg ref="popBean"/>
+    </bean>
+
+    <!-- Example of dependency injection using setter -->
+    <bean id="rockSetMusicPlayer" class="application.MusicPlayer">
+        <property name="music" ref="rockBean"/>
+        <property name="name" value="injectedFromContextxmlPlayer"/>
+        <property name="volume" value="50"/>
+    </bean>
+
+    <!-- Example with using properties file -->
+    <bean id="propertiesMusicPlayer" class="application.MusicPlayer">
+        <property name="music" ref="popBean"/>
+
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPLayer.volume}"/>
+    </bean>
+</beans>
