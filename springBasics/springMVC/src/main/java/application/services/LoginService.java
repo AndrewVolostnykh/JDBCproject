@@ -1,11 +1,19 @@
 package application.services;
 
-public class LoginService {
-    public static boolean isValid(String login, String password)
-    {
-        String static_login = "andrew";
-        String static_pass = "andrew";
+import application.model.Entities.User;
+import application.model.UserDao;
 
-        return login.equals(static_login) & password.equals(static_pass);
+public class LoginService {
+    public static User login(String login, String password)
+    {
+        UserDao userDao = new UserDao();
+        User user;
+        user = userDao.getUserByLogin(login, password);
+
+        if(user != null)
+            if(user.getPassword().equals(password))
+                return user;
+
+        return null;
     }
 }

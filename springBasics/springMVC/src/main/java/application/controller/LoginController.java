@@ -1,5 +1,6 @@
 package application.controller;
 
+import application.model.Entities.User;
 import application.services.LoginService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,12 +23,14 @@ public class LoginController {
     @RequestMapping("/login-page")
     public ModelAndView loginCheck(@RequestParam("login") String login, @RequestParam("password") String password)
     {
+        User user = LoginService.login(login, password);
+
         ModelAndView mv = new ModelAndView();
         mv.setViewName("home");
-        if(LoginService.isValid(login, password))
+        if(user != null)
         {
             mv.addObject("reuslt", "success");
-            mv.addObject("login", login);
+            mv.addObject("user", user);
 
             return mv;
         } else {

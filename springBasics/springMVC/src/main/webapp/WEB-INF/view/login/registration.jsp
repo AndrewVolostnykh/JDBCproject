@@ -12,11 +12,11 @@
 </head>
 <body>
     <form action="registration" method="post">
-        <input type="text" name="login"><br>
-        <input type="text" name="surname"><br>
-        <input type="text" name="password"><br>
-        <input type="text" name="email"><br>
-        <input type="number" name="age"><br>
+        Name: <input type="text" name="login"><br>
+        Surname: <input type="text" name="surname"><br>
+        Password: <input type="text" name="password"><br>
+        Email: <input type="text" name="email"><br>
+        Age: <input type="number" name="age"><br>
         <input type="submit">
     </form>
 </body>
