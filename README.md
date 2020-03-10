@@ -8,3 +8,9 @@ jdbcPract
 hibernateStart
 ---------------------
 >Here saved practice with hibernate and Junit/Mockito testing 
+
+spring basics
+---------------------
+
+and small project
+---------------------
