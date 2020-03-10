@@ -1,3 +1,3 @@
 # Spring basics
 
-Here i saved some projects with practicing IoC, DI and other basics in popular frameworks
+Here i saved some projects with practicing IoC, DI, MVC and other basics in popular frameworks
