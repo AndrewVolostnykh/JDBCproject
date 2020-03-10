@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Simple-rest|Main</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <h3 th:inline="text">Hey [[${#httpServletRequest.remoteUser}]]!</h3>
+
+        <p>There is home page of my simple application!</p>
+
+        <button onclick="location.href='/greeting'">Greeting</button>
+        <button onclick="location.href='/messages'">Messages</button>
+    </body>
+</html>
