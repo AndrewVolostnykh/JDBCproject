@@ -20,4 +20,7 @@ public class GreetingController {
         return "home";
     }
 
+    @GetMapping("/main")
+    public String mainPage()
+    {return "main"; }
 }

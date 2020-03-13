@@ -8,8 +8,11 @@
     <body>
         <h3 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h3>
         <form th:action="@{/logout}" method="post">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
             <input type="submit" value="Sign Out"/>
         </form>
+
+        <h2>Email: ${pageContext.request.userPrincipal.email}</h2>
         <br>
         <button onclick="location.href='/greeting'">Greeting</button>
         <button onclick="location.href='/messages'">Messages</button>

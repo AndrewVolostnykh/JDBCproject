@@ -1,10 +1,10 @@
 package controllers;
 
 import domain.Message;
+import domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,10 +48,10 @@ public class MessagesController {
     }
 
     @PostMapping("/messages")
-    public String addNewMessage(@RequestParam String text, @RequestParam String tag, Model model)
+    public String addNewMessage(@AuthenticationPrincipal User user, @RequestParam String text, @RequestParam String tag, Model model)
     {
 
-        Message message = new Message(text, tag);
+        Message message = new Message(text, tag, user);
         messageRepos.save(message);
         Iterable<Message> messages = messageRepos.findAll();
         model.addAttribute("messages", messages);

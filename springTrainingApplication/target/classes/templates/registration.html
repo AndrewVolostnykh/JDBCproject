@@ -6,21 +6,26 @@
     </head>
     <body>
 
-    <form action="/registration" th:object="${user}" method="post">
+    <span th:text="${message}">message</span> <br>
+
+    <form action="/registration" method="post" >
         <label> Full name:
-            <input th:field="*{fullName}" />
+            <input type="text" name="full_name"/>
         </label>
 
         <label> Email:
-            <input type="email" th:field="*{email}" />
+            <input type="text" name="email" />
         </label>
 
         <label> Create password:
-            <input type="password" th:field="*{password}"/>
+            <input type="password" name="password"/>
         </label>
 
-        <button type="submit"> Register </button>
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+        <button type="submit" > Register </button>
     </form>
+        <br>
+    <button onclick="location.href='/login'">Back to login</button>
 
     </body>
 </html>

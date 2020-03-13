@@ -46,6 +46,7 @@
                 <span th:text="${message.getId()} + ' | '">id</span>
                 <span th:text="${message.getText()}">text</span>
                 <span th:text="' | Tag: ' + ${message.getTag()}">tags</span>
+                <span th:text="' | ' + ${message.getAuthorName()}">author</span>
             </p>
         </div>
 

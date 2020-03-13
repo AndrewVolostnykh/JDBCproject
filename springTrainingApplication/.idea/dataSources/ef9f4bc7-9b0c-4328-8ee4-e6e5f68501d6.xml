@@ -24,7 +24,7 @@
       <ObjectId>57871</ObjectId>
       <StateNumber>1509</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1514</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1535</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </database>
@@ -121,7 +121,7 @@
       <Comment>standard public schema</Comment>
       <StateNumber>360</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1515</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1536</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -181,28 +181,153 @@
       <SchemaName>pg_catalog</SchemaName>
       <SchemaId>11</SchemaId>
     </extension>
-    <table id="30" parent="22" name="Message">
+    <sequence id="30" parent="22" name="hibernate_sequence">
+      <ObjectId>57886</ObjectId>
+      <StateNumber>1517</StateNumber>
+      <Owner>postgres</Owner>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>bigint</DataType>
+    </sequence>
+    <table id="31" parent="22" name="Message">
       <ObjectId>57872</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1513</StateNumber>
     </table>
-    <column id="31" parent="30" name="id">
+    <table id="32" parent="22" name="message">
+      <ObjectId>57878</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1516</StateNumber>
+    </table>
+    <table id="33" parent="22" name="user_roles">
+      <ObjectId>57888</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1531</StateNumber>
+    </table>
+    <table id="34" parent="22" name="usr">
+      <ObjectId>57891</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1532</StateNumber>
+    </table>
+    <column id="35" parent="31" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1511</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="32" parent="30" name="text">
+    <column id="36" parent="31" name="text">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <StateNumber>1512</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="33" parent="30" name="tag">
+    <column id="37" parent="31" name="tag">
       <Position>3</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1513</StateNumber>
       <TypeId>1043</TypeId>
     </column>
+    <column id="38" parent="32" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1516</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="39" parent="32" name="tag">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1516</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="40" parent="32" name="text">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1516</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="41" parent="32" name="message_pkey">
+      <ObjectId>57884</ObjectId>
+      <StateNumber>1516</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="42" parent="32" name="message_pkey">
+      <ObjectId>57885</ObjectId>
+      <StateNumber>1516</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>message_pkey</UnderlyingIndexName>
+    </key>
+    <column id="43" parent="33" name="user_id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1529</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="44" parent="33" name="roles">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1529</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <foreign-key id="45" parent="33" name="fkg6agnwreityp2vf23bm2jgjm3">
+      <ObjectId>57899</ObjectId>
+      <StateNumber>1531</StateNumber>
+      <ColNames>user_id</ColNames>
+      <RefTableId>57891</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>usr</RefTableName>
+      <RefKeyName>usr_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="46" parent="34" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1530</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="47" parent="34" name="active">
+      <Position>2</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1530</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="48" parent="34" name="email">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1530</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="49" parent="34" name="password">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1530</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="50" parent="34" name="full_name">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1532</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="51" parent="34" name="usr_pkey">
+      <ObjectId>57897</ObjectId>
+      <StateNumber>1530</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="52" parent="34" name="usr_pkey">
+      <ObjectId>57898</ObjectId>
+      <StateNumber>1530</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>usr_pkey</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>
