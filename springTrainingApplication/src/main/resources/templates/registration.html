@@ -9,7 +9,7 @@
     <span th:text="${message}">message</span> <br>
 
     <form action="/registration" method="post" >
-        <label> Full name:
+        <label> Full target:
             <input type="text" name="full_name"/>
         </label>
 
@@ -21,7 +21,7 @@
             <input type="password" name="password"/>
         </label>
 
-        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+        <input type="hidden" th:target="${_csrf.parameterName}" th:value="${_csrf.token}">
         <button type="submit" > Register </button>
     </form>
         <br>

@@ -1,29 +1,30 @@
 package domain;
 
 import javax.persistence.*;
-//
-//@Entity
-//@Table(name = "goals")
+
+@Entity
+@Table(name = "goals")
 public class Goals {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    private String name;
+    private String target;
     private String description;
-    private boolean isActive;
+    private boolean isActive = true;
+    private int time; // in days
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "user_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
     public User user;
 
     public Goals(){}
 
-    public Goals(Integer id, String name, String description, boolean isActive) {
-        this.id = id;
-        this.name = name;
+    public Goals(String name, String description, int time, User user) {
+        this.target = name;
         this.description = description;
-        this.isActive = isActive;
+        this.time = time;
+        this.user = user;
     }
 
     public Integer getId() {
@@ -34,12 +35,12 @@ public class Goals {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTarget() {
+        return target;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTarget(String target) {
+        this.target = target;
     }
 
     public String getDescription() {
@@ -64,5 +65,13 @@ public class Goals {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
     }
 }

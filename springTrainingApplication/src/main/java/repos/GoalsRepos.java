@@ -1,9 +1,12 @@
 package repos;
 
 import domain.Goals;
+import domain.User;
 import org.springframework.data.repository.CrudRepository;
 
-public interface GoalsRepos// extends CrudRepository<Goals, Integer>
-{
+import java.util.List;
 
+public interface GoalsRepos extends CrudRepository<Goals, Integer>
+{
+    List<Goals> findByUser(User user);
 }

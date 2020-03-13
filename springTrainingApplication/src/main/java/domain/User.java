@@ -24,7 +24,9 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
-    //private Set<Goals> goals;
+    @ElementCollection(targetClass = Goals.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_goals", joinColumns = @JoinColumn(name = "user_id"))
+    private Set<Goals> goals;
 
     public User(){}
 

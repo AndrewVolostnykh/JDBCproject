@@ -11,11 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import repos.MessageRepos;
 
-import java.util.List;
 
 @Controller
-//@Service
-//@ComponentScan("repos")
 public class MessagesController {
 
     @Autowired
