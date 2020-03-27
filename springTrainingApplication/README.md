@@ -5,5 +5,5 @@ STACK : Spring Boot, Spring MVC, Spring Security(securing and handing of user se
 For what?
 -------------
 
-Created to take practice in development rest web application on spring. 
+Created to take practice in development web application on spring. 
 
