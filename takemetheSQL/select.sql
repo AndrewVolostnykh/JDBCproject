@@ -1,5 +1,48 @@
 use STUDENT_INFO;
 
+/*UNION Example*/
+(SELECT StudentId FROM PHONE_LIST WHERE PhoneType = 'дом')
+UNION /*There is disctinct operation, for all using all*/
+(SELECT StudentId FROM PHONE_LIST WHERE PhoneType = 'моб')
+ORDER BY StudentId;
+
+/*Included requests*/
+SELECT StudentId, StudentName
+FROM STUDENT
+WHERE StudentId IN (SELECT DISTINCT StudentId FROM EXAM_RESULT WHERE Mark = 2);
+
+SELECT * FROM TEACHER WHERE EXISTS (SELECT * FROM EXAM_SHEET WHERE EXAM_SHEET.CourseId = (
+SELECT COURSE.CourseId FROM COURSE WHERE COURSE.CourseTitle = "Базы данных")
+AND TEACHER.TeacherId = EXAM_SHEET.TeacherId);
+
+SELECT * FROM STUDENT 
+WHERE 5 = ALL(SELECT Mark FROM EXAM_RESULT
+WHERE EXAM_RESULT.StudentId = STUDENT.StudentId); /* Foud all excelent students */
+
+SELECT StudentName FROM STUDENT
+WHERE StudentId IN (SELECT StudentId
+					FROM PHONE_LIST
+					GROUP BY StudentId HAVING COUNT(*) > 1);
+					
+SELECT StudentName,
+		(SELECT AVG(Mark) FROM EXAM_RESULT
+		WHERE EXAM_RESULT.StudentId = STUDENT.StudentId) AVG_MARK
+FROM STUDENT;
+
+SELECT GroupNumber, AVG(MARK) AVG_MARK
+FROM 
+(SELECT StudentID, Mark, (SELECT GroupNumber FROM STUDENT WHERE StudentId = EXAM_RESULT.StudentId)
+GroupNumber FROM EXAM_RESULT) TEMP GROUP BY GroupNumber;
+
+/*Joining tables*/
+SELECT CourseTitle, TeacherName, GroupNumber, ExamDate
+FROM COURSE, EXAM_SHEET, TEACHER
+WHERE COURSE.CourseId = EXAM_SHEET.CourseId AND TEACHER.TeacherId = EXAM_SHEET.TeacherId;
+
+SELECT StudentName, Phone
+FROM STUDENT LEFT OUTER JOIN PHONE_LIST
+ON STUDENT.StudentId = PHONE_LIST.StudentId;
+
 /*Aggregating*/
 SELECT GroupNumber AS "GROUP NUMBER" COUNT(*) AS "NUMBER OF STUDENTS IN GROUP" FROM STUDENT GROUP BY GroupNumber;
 
