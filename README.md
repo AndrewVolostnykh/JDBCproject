@@ -1,5 +1,5 @@
 # StackForming
-JDBC, Hibernate, Spring (some of), Tesing(Junit, Mockito), other
+JDBC, Hibernate, Spring (some of), Tesing(Junit, Mockito), SQL, other
 
 jdbcPract
 ---------------------
@@ -14,3 +14,7 @@ spring basics
 
 and small project
 ---------------------
+
+takemethesql
+---------------------
+> dir where i saved practice/learning SQL
