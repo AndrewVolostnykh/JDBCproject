@@ -1,3 +1,5 @@
+USE STUDENT_INFO;
+
 CREATE VIEW V_EXAM_RESULT AS SELECT StudentId, Mark
 FROM EXAM_RESULT WHERE Mark = 5; /*Merge algorithm example*/
 
